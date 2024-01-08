@@ -40,7 +40,6 @@ public class AlbumService {
 
 
     public Album getAlbumByTitle(String title){
-        System.out.println(title);
         return albumRepository.findByTitle(title).orElseThrow(() -> new RuntimeException(
                 String.format("Cannot Find Album by Name %s", title)));
     }

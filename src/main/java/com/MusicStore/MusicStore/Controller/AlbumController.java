@@ -21,7 +21,6 @@ public class AlbumController {
 
     @PostMapping
     public ResponseEntity addAlbum(@RequestBody Album album){
-        System.out.println("Controller Triggered for POST");
         albumService.addAlbum(album);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
@@ -39,7 +38,6 @@ public class AlbumController {
 
     @GetMapping("/{title}")
     public ResponseEntity<Album> getAlbumByTitle(@PathVariable String title){
-        System.out.println("Controller Triggered");
         return ResponseEntity.ok(albumService.getAlbumByTitle(title));
     }
 
