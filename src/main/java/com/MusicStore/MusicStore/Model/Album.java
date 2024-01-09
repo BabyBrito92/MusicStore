@@ -29,16 +29,12 @@ public class Album {
 
     }
 
-    public Album(String id, Long albumID, String title, Long artistID, String label, String imagePath, int quantity, String genre, int releaseDate, String label1, String imagePath1, int quantity1, String genre1, int releaseDate1) {
-        this.id = id;
+    public Album(Long albumID, String title, Long artistID, String label, String imagePath, int quantity, String genre, int releaseDate) {
         this.albumID = albumID;
         this.title = title;
         this.artistID = artistID;
         this.label = label;
-        this.imagePath = imagePath1;
-        this.quantity = quantity1;
-        this.genre = genre1;
-        this.releaseDate = releaseDate1;
+        this.releaseDate = releaseDate;
     }
     public String getID() {
         return id;
