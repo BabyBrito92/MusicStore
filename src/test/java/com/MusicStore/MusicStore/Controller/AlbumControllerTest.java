@@ -1,7 +1,7 @@
-package com.MusicStore.MusicStore.Model;
-
+package com.MusicStore.MusicStore.Controller;
 
 import com.MusicStore.MusicStore.Controller.AlbumController;
+import com.MusicStore.MusicStore.Model.Album;
 import com.MusicStore.MusicStore.Repository.AlbumRepository;
 import com.MusicStore.MusicStore.Service.AlbumService;
 import org.junit.jupiter.api.BeforeEach;
@@ -22,7 +22,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
-class AlbumTest {
+class AlbumControllerTest {
 
     @Mock
     private AlbumRepository mockAlbumRepository;
