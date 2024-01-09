@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document("Albums")
-public class Album {
+public class Album extends Product{
     @Id
     String id;
     @Field(name="albumID")
@@ -26,14 +26,17 @@ public class Album {
     int releaseDate;
 
     public Album(){
-
+        super();
     }
 
     public Album(Long albumID, String title, Long artistID, String label, String imagePath, int quantity, String genre, int releaseDate) {
+        super(quantity);
         this.albumID = albumID;
         this.title = title;
         this.artistID = artistID;
         this.label = label;
+        this.imagePath = imagePath;
+        this.genre = genre;
         this.releaseDate = releaseDate;
     }
     public String getID() {
@@ -59,11 +62,11 @@ public class Album {
         this.title = title;
     }
 
-    public Long getArtist() {
+    public Long getArtistID() {
         return artistID;
     }
 
-    public void setArtist(Artist artist) {
+    public void setArtistID(Long artistID) {
         this.artistID = artistID;
     }
 
@@ -83,13 +86,6 @@ public class Album {
         this.imagePath = imagePath;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
 
     public String getGenre() {
         return genre;
