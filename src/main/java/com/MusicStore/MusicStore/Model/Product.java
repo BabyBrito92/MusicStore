@@ -1,12 +1,12 @@
 package com.MusicStore.MusicStore.Model;
 
+import org.springframework.data.mongodb.core.mapping.Field;
+
 public abstract class Product {
 
-    int quantity;
+    @Field(name="quantity")
+    private int quantity;
 
-    public Product(int quantity) {
-        this.quantity = quantity;
-    }
 
     public Product() {
     }
