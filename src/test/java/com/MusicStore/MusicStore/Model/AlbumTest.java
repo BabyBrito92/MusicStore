@@ -4,7 +4,6 @@ package com.MusicStore.MusicStore.Model;
 import com.MusicStore.MusicStore.Controller.AlbumController;
 import com.MusicStore.MusicStore.Repository.AlbumRepository;
 import com.MusicStore.MusicStore.Service.AlbumService;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
