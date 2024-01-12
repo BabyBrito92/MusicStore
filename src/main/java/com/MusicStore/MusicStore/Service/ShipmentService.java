@@ -15,9 +15,6 @@ public class ShipmentService {
         this.shipmentRepository = shipmentRepository;
     }
 
-    public ShipmentService(){
-
-    }
 
     public void addShipment(Shipment shipment){
         shipmentRepository.insert(shipment);
@@ -27,7 +24,7 @@ public class ShipmentService {
     public void updateShipment(Shipment shipment){
         Shipment savedShipment = shipmentRepository.findById(shipment.getId())
             .orElseThrow(() -> new RuntimeException(
-                    String.format("Cannot Find Order by ID %s", shipment.getId())));
+                    String.format("Cannot Find Shipment by ID %s", shipment.getId())));
 
         savedShipment.setOrders(shipment.getOrders());
         savedShipment.setDeliveryType(shipment.getDeliveryType());
