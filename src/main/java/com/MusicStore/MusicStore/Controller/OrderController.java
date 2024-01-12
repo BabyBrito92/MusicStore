@@ -23,6 +23,7 @@ public class OrderController {
         orderService.addOrder(order);
         return ResponseEntity.status(HttpStatus.CREATED).build();
 
+
     }
 
     @PutMapping
@@ -32,7 +33,7 @@ public class OrderController {
 
     }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Order> deleteOrder(@PathVariable Order order){
         orderService.deleteOrder(order);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();

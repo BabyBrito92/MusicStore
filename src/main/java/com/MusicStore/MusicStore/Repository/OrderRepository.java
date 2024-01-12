@@ -1,7 +1,6 @@
 package com.MusicStore.MusicStore.Repository;
 
 
-import com.MusicStore.MusicStore.Model.Album;
 import com.MusicStore.MusicStore.Model.Order;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
