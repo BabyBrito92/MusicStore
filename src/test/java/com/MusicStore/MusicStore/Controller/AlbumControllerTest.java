@@ -24,7 +24,7 @@ class AlbumControllerTest {
     @Mock
     AlbumRepository mockAlbumRepo;
 
-    private AlbumService mockAlbumService;
+    private AlbumService albumService;
 
     private AlbumController albumController;
     Album testAlbum1;
@@ -34,44 +34,44 @@ class AlbumControllerTest {
     public void setUp(){
         testAlbum1 = new Album(Long.valueOf("1234567") , "AlbumTestTitle1", Long.valueOf("1234567"), "AlbumTestLabel1", "ImagePath1", 10, "AlbumTestGenre1", 1990);
         testAlbum2 = new Album(Long.valueOf("2345678") , "AlbumTestTitle2", Long.valueOf("2345678"), "AlbumTestLabel2", "ImagePath2", 20, "AlbumTestGenre2", 1991);
-        mockAlbumService = spy(new AlbumService(mockAlbumRepo));
-        albumController = new AlbumController(mockAlbumService);
+        albumService = spy(new AlbumService(mockAlbumRepo));
+        albumController = new AlbumController(albumService);
     }
 
     @Test
     void getAllAlbumsReturnsListOfAlbumsAndCorrectResponseEntity(){
-        doReturn(List.of(testAlbum1, testAlbum2)).when(mockAlbumService).getAllAlbums();
+        doReturn(List.of(testAlbum1, testAlbum2)).when(albumService).getAllAlbums();
 
-        assertEquals(ResponseEntity.ok(mockAlbumService.getAllAlbums()), albumController.getAllAlbums());
-        verify(mockAlbumService, times(2)).getAllAlbums();
+        assertEquals(ResponseEntity.ok(albumService.getAllAlbums()), albumController.getAllAlbums());
+        verify(albumService, times(2)).getAllAlbums();
     }
 
     @Test
     void getAlbumByNameReturnsCorrectAlbumAndResponseEntity(){;
-        doReturn(testAlbum1).when(mockAlbumService).getAlbumByTitle(testAlbum1.getTitle());
+        doReturn(testAlbum1).when(albumService).getAlbumByTitle(testAlbum1.getTitle());
 
-        assertEquals(ResponseEntity.ok(mockAlbumService.getAlbumByTitle(testAlbum1.getTitle())), albumController.getAlbumByTitle(testAlbum1.getTitle()));
-        verify(mockAlbumService, times(2)).getAlbumByTitle(testAlbum1.getTitle());
+        assertEquals(ResponseEntity.ok(albumService.getAlbumByTitle(testAlbum1.getTitle())), albumController.getAlbumByTitle(testAlbum1.getTitle()));
+        verify(albumService, times(2)).getAlbumByTitle(testAlbum1.getTitle());
     }
 
     @Test
     void addAlbumWorksAsExpectedAndReturnsCorrectResponseEntity(){
         assertEquals(albumController.addAlbum(testAlbum1),ResponseEntity.status(HttpStatus.CREATED).build());
-        verify(mockAlbumService).addAlbum(testAlbum1);
+        verify(albumService).addAlbum(testAlbum1);
     }
 
     @Test
     void updateAlbumWorksAsExpectedAndReturnsCorrectResponseEntity(){
-        doNothing().when(mockAlbumService).updateAlbum(testAlbum1);
+        doNothing().when(albumService).updateAlbum(testAlbum1);
 
         assertEquals(albumController.updateAlbum(testAlbum1),ResponseEntity.ok().build());
-        verify(mockAlbumService, times(1)).updateAlbum(testAlbum1);
+        verify(albumService, times(1)).updateAlbum(testAlbum1);
     }
 
     @Test
     void deleteAlbumWorksAsExpected(){
         assertEquals(albumController.deleteAlbum(testAlbum1.getID()),ResponseEntity.status(HttpStatus.NO_CONTENT).build());
-        verify(mockAlbumService).deleteAlbum(testAlbum1.getID());
+        verify(albumService).deleteAlbum(testAlbum1.getID());
     }
 
 
