@@ -30,6 +30,20 @@ public class Cart {
         }
     }
 
+    public void removeItem(Product productToBeRemoved){
+        products.remove(productToBeRemoved);
+    }
+
+    public void removeItem(Product productToBeRemoved, int quantity){
+        for (Product product : products) {
+            if (product.equals(productToBeRemoved)) {
+                product.setProductQuantity(product.getProductQuantity() - quantity);
+                break;
+            }
+        }
+    }
+
+
     public void clearCart() {
         products.clear();
     }

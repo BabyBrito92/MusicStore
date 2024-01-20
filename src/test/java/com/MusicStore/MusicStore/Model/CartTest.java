@@ -27,7 +27,6 @@ class CartTest {
 
         cart.addItem(productToBeAdded, 1);
         assertEquals(4, cart.getProducts().size());
-
     }
 
     @Test
@@ -54,6 +53,28 @@ class CartTest {
         cart.addItem(cart.getProducts().get(0),3 );
         cart.addItem(cart.getProducts().get(0),4 );
         assertEquals(12, cart.getSize());
+    }
+
+    @Test
+    void removeItemCompletleyFromCart(){
+        cart.addItem(cart.getProducts().get(0), 1);
+        assertEquals(4, cart.getSize());
+        assertEquals(3, cart.getProducts().size());
+
+        cart.removeItem(cart.getProducts().get(0));
+        assertEquals(2, cart.getSize());
+        assertEquals(2, cart.getProducts().size());
+    }
+
+    @Test
+    void removeItemReducesQuantityInCartButDoesNotRemovesIt(){
+        cart.addItem(cart.getProducts().get(0),1 );
+        assertEquals(4, cart.getSize());
+        assertEquals(3, cart.getProducts().size());
+
+        cart.removeItem(cart.getProducts().get(0), 1);
+        assertEquals(3, cart.getSize());
+        assertEquals(3, cart.getProducts().size());
     }
 
 
