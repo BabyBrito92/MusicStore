@@ -7,23 +7,23 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document("Albums")
 public class Album extends Product{
     @Id
-    String id;
+    private String id;
     @Field(name="albumID")
-     Long albumID;
+    private Long albumID;
     @Field(name="title")
-    String title;
+    private String title;
     @Field(name="artistID")
-    Long artistID;
+    private Long artistID;
     @Field(name="quantity")
-    int albumQuantity;
+    private int albumQuantity;
     @Field(name="label")
-    String label;
+    private String label;
     @Field(name="imagePath")
-    String imagePath;
+    private String imagePath;
     @Field(name="genre")
-    String genre;
+    private String genre;
     @Field(name="releaseDate")
-    int releaseDate;
+    private int releaseDate;
 
     public Album(){
         super();
