@@ -27,7 +27,7 @@ public class AlbumService {
         savedAlbum.setTitle(album.getTitle());
         savedAlbum.setLabel(album.getLabel());
         savedAlbum.setImagePath(album.getImagePath());
-        savedAlbum.setQuantity(album.getQuantity());
+        savedAlbum.setAlbumQuantity(album.getAlbumQuantity());
         savedAlbum.setGenre(album.getGenre());
         savedAlbum.setReleaseDate(album.getReleaseDate());
 

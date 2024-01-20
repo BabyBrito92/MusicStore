@@ -9,11 +9,13 @@ public class Album extends Product{
     @Id
     String id;
     @Field(name="albumID")
-    Long albumID;
+     Long albumID;
     @Field(name="title")
     String title;
     @Field(name="artistID")
     Long artistID;
+    @Field(name="quantity")
+    int albumQuantity;
     @Field(name="label")
     String label;
     @Field(name="imagePath")
@@ -27,13 +29,13 @@ public class Album extends Product{
         super();
     }
 
-    public Album(Long albumID, String title, Long artistID, String label, String imagePath, int quantity, String genre, int releaseDate) {
+    public Album(Long albumID, String title, Long artistID, String label, String imagePath, int albumQuantity, String genre, int releaseDate) {
         super();
-        super.setQuantity(quantity);
         this.albumID = albumID;
         this.title = title;
         this.artistID = artistID;
         this.label = label;
+        this.albumQuantity = albumQuantity;
         this.imagePath = imagePath;
         this.genre = genre;
         this.releaseDate = releaseDate;
@@ -72,6 +74,14 @@ public class Album extends Product{
 
     public void setLabel(String label) {
         this.label = label;
+    }
+
+    public int getAlbumQuantity() {
+        return albumQuantity;
+    }
+
+    public void setAlbumQuantity(int albumQuantity) {
+        this.albumQuantity = albumQuantity;
     }
 
     public String getImagePath() {

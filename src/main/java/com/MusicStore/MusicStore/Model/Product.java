@@ -1,21 +1,21 @@
 package com.MusicStore.MusicStore.Model;
 
-import org.springframework.data.mongodb.core.mapping.Field;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document("Products")
 public abstract class Product {
 
-    @Field(name="quantity")
-    private int quantity;
 
-
+    private int productQuantity;
     public Product() {
     }
 
-    public int getQuantity(){
-        return quantity;
+    public int getProductQuantity(){
+        return productQuantity;
     }
-
-    public void setQuantity(int quantity){
-        this.quantity = quantity;
+    public void setProductQuantity(int productQuantity){
+        this.productQuantity = productQuantity;
     }
 }
